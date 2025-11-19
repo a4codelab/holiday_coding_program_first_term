@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Your First Website This Holiday - A4CodeLab Tutors</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #1E90FF;
+            font-size: 12px;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .brand-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .brand-name .a4 {
+            color: #FF8C42;
+        }
+
+        .brand-name .codelab {
+            color: #1E90FF;
+        }
+
+        .brand-name .tutors {
+            color: #FF8C42;
+            font-size: 16px;
+            display: block;
+            margin-top: -5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1E90FF 0%, #00BFFF 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .online-badge {
+            display: inline-block;
+            background: #FF8C42;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .hero-details {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .hero-detail {
+            background: rgba(255,255,255,0.1);
+            padding: 15px 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-detail strong {
+            display: block;
+            font-size: 24px;
+            color: #FF8C42;
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            background: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .countdown h2 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: linear-gradient(135deg, #1E90FF 0%, #00BFFF 100%);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            min-width: 100px;
+        }
+
+        .countdown-item .number {
+            font-size: 48px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .countdown-item .label {
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        /* Program Highlights */
+        .highlights {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .highlights h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .highlight-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #1E90FF;
+            transition: transform 0.3s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .highlight-card h3 {
+            color: #1E90FF;
+            margin-bottom: 15px;
+        }
+
+        /* Demo Websites */
+        .demo-section {
+            padding: 60px 0;
+            background: #f4f4f4;
+        }
+
+        .demo-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        .demo-section .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .demo-screenshot {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .lazy-gif {
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            transition: opacity 0.3s ease;
+        }
+
+        .lazy-gif[src=""] {
+            opacity: 0;
+        }
+
+        .demo-card:nth-child(1) .demo-screenshot {
+            background: linear-gradient(135deg, #FF8C42 0%, #FF6B6B 100%);
+        }
+
+        .demo-card:nth-child(2) .demo-screenshot {
+            background: linear-gradient(135deg, #1E90FF 0%, #00D4FF 100%);
+        }
+
+        .demo-content {
+            padding: 30px;
+        }
+
+        .demo-content h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .demo-content .hook {
+            color: #FF8C42;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .demo-content .sections {
+            margin: 15px 0;
+            color: #666;
+        }
+
+        .demo-content .value {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .skill-tag {
+            background: #1E90FF;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .vote-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #FF8C42 0%, #FF6B6B 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .vote-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 140, 66, 0.4);
+        }
+
+        .demo-card:nth-child(2) .vote-btn {
+            background: linear-gradient(135deg, #1E90FF 0%, #00BFFF 100%);
+        }
+
+        .demo-card:nth-child(2) .vote-btn:hover {
+            box-shadow: 0 5px 15px rgba(30, 144, 255, 0.4);
+        }
+
+        /* Registration Section */
+        .registration {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .registration h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        .registration .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        .form-placeholder {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            border: 3px dashed #1E90FF;
+            text-align: center;
+        }
+
+        .form-placeholder h3 {
+            color: #1E90FF;
+            margin-bottom: 20px;
+        }
+
+        .form-placeholder ol {
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+            line-height: 2;
+        }
+
+        .form-placeholder code {
+            background: #2c3e50;
+            color: #FF8C42;
+            padding: 2px 8px;
+            border-radius: 3px;
+        }
+
+        .form-placeholder iframe {
+           border-radius: 15px;
+           box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 60px 0;
+            background: #f4f4f4;
+        }
+
+        .faq h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+
+        .faq-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #1E90FF;
+        }
+
+        .faq-item h3 {
+            color: #1E90FF;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .faq-item p {
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .contact-method {
+            background: rgba(255,255,255,0.1);
+            padding: 20px 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .contact-method:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-method strong {
+            display: block;
+            color: #FF8C42;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-details {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .countdown-timer {
+                gap: 15px;
+            }
+
+            .countdown-item {
+                padding: 15px 20px;
+                min-width: 80px;
+            }
+
+            .countdown-item .number {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content" lt>             
+                    <img src="./images/logo.jpg" alt="logo" style="width: 60px; height: 60px; border-radius: 8px; object-fit: contain;" />
+                <div class="brand-name">
+                    <span class="a4">A4</span><span class="codelab">CodeLab</span>
+                    <span class="tutors">TUTORS</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Code Your First Website This Holiday!</h1>
+            <p>Learn HTML, CSS & JavaScript in just 2 weeks</p>
+            <div class="online-badge">🌐 100% ONLINE PROGRAM</div>
+            <div class="hero-details">
+                <div class="hero-detail">
+                    <strong>₦5,500</strong>
+                    <span>Per Student</span>
+                </div>
+                <div class="hero-detail">
+                    <strong>Mon/Wed/Fri</strong>
+                    <span>Dec 22 - Jan 2</span>
+                </div>
+                <div class="hero-detail">
+                    <strong>2 Weeks</strong>
+                    <span>6 Live Sessions</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Timer -->
+    <section class="countdown">
+        <div class="container">
+            <h2>⏰ Program Starts In:</h2>
+            <div class="countdown-timer" id="countdown">
+                <div class="countdown-item">
+                    <span class="number" id="days">00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="hours">00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="minutes">00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="seconds">00</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Highlights -->
+    <section class="highlights">
+        <div class="container">
+            <h2>What Your Child Will Learn</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <h3>📝 HTML Basics</h3>
+                    <p>Learn to structure web pages with headings, paragraphs, images, and links</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🎨 CSS Styling</h3>
+                    <p>Make websites beautiful with colors, fonts, layouts, and animations</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>⚡ JavaScript Fundamentals</h3>
+                    <p>Add interactivity with buttons, forms, and simple calculations</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>📱 Responsive Design</h3>
+                    <p>Create websites that work perfectly on phones and computers</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🚀 Real Project</h3>
+                    <p>Build a complete, functional website from scratch</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🏆 Certificate</h3>
+                    <p>Receive a certificate of completion to showcase their new skills</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Websites -->
+<section class="demo-section">
+    <div class="container">
+        <h2>🗳️ Vote for Your Preferred Project!</h2>
+        <p class="subtitle">Choose which website you'd like to build during the program</p>
+        
+        <div class="demo-grid">
+            <!-- Kitchen Maths -->
+            <div class="demo-card">
+                <div class="demo-screenshot">
+                    <img 
+                        src="./gif/ktmath-min.gif" 
+                        alt="Kitchen Maths Demo" 
+                        class="lazy-gif"
+                        loading="lazy"
+                        style="width: 100%; height: 300px; object-fit: cover; border-radius: 10px;"
+                    />
+                </div>
+                <div class="demo-content">
+                    <h3>🍲 Kitchen Maths</h3>
+                    <p class="hook">Recipe Cost Calculator</p>
+                    <p><strong>How it works:</strong> Pick a Nigerian dish (jollof, moi-moi, akara) → adjust servings → get instant cost estimate!</p>
+                    
+                    <p class="sections"><strong>Features:</strong> Price list table, printable shopping checklist, nutrient summary</p>
+                    
+                    <div class="value">
+                        <strong>Parent Value:</strong> Teaches budgeting, numeracy, and home economics
+                    </div>
+                    
+                    <p><strong>Skills You'll Learn:</strong></p>
+                    <div class="skills-list">
+                        <span class="skill-tag">HTML Tables</span>
+                        <span class="skill-tag">Form Validation</span>
+                        <span class="skill-tag">JavaScript Math</span>
+                        <span class="skill-tag">Responsive Design</span>
+                        <span class="skill-tag">Print Styling</span>
+                    </div>
+                    
+                    <button class="vote-btn" onclick="selectProject('Kitchen Maths')">Vote for Kitchen Maths</button>
+                </div>
+            </div>
+
+            <!-- Heritage Hero -->
+            <div class="demo-card">
+                <div class="demo-screenshot">
+                    <img 
+                        src="./gif/hero-min.gif" 
+                        alt="Heritage Hero Demo" 
+                        class="lazy-gif"
+                        loading="lazy"
+                        style="width: 100%; height: 300px; object-fit: cover; border-radius: 10px;"
+                    />
+                </div>
+                <div class="demo-content">
+                    <h3>🇳🇬 Naija Heritage Hero</h3>
+                    <p class="hook">Nigerian Cultural Facts Explorer</p>
+                    <p><strong>How it works:</strong> Click any state on a Nigeria map → discover greetings, festivals, and staple foods!</p>
+                    
+                    <p class="sections"><strong>Features:</strong> Interactive map, "Did-you-know" flip cards, cultural quiz, downloadable postcards</p>
+                    
+                    <div class="value">
+                        <strong>Parent Value:</strong> Promotes civic education, cultural pride, and Nigerian heritage
+                    </div>
+                    
+                    <p><strong>Skills You'll Learn:</strong></p>
+                    <div class="skills-list">
+                        <span class="skill-tag">Interactive Maps</span>
+                        <span class="skill-tag">CSS Animations</span>
+                        <span class="skill-tag">Event Listeners</span>
+                        <span class="skill-tag">Modal Pop-ups</span>
+                        <span class="skill-tag">Quiz Logic</span>
+                    </div>
+                    
+                    <button class="vote-btn" onclick="selectProject('Heritage Hero')">Vote for Heritage Hero</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Registration Form -->
+   <section class="registration" id="register">
+    <div class="container">
+        <h2>📝 Register Now!</h2>
+        <p class="subtitle">Secure your child's spot in this exciting program</p>
+        
+        <div class="form-placeholder">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSde0PcRe86Md2Dl72pvib5DhTVQmWD0sfL67PR9xDfZ2G4Lcg/viewform?embedded=true" width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </div>
+</section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>❓ Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>What if my child misses a class?</h3>
+                    <p>Don't worry! All sessions will be recorded and shared with registered students. They can catch up at their own pace. However, we encourage live attendance for the best interactive learning experience.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Does my child need a laptop?</h3>
+                    <p>Yes, a laptop or desktop computer is required. Unfortunately, tablets and phones won't work well for coding. The device should have a stable internet connection and a modern web browser (Chrome, Firefox, or Edge).</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What internet speed is required?</h3>
+                    <p>A minimum of 2 Mbps is recommended for smooth video streaming. However, 5 Mbps or higher is ideal for the best experience. Students should test their connection before the first class.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Does my child need prior coding experience?</h3>
+                    <p>No prior experience is needed! This program is designed for complete beginners. We'll start from the very basics and build up gradually. All your child needs is curiosity and eagerness to learn.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What age group is this program for?</h3>
+                    <p>This program is ideal for secondary school students (ages 10-18). The content is tailored to be engaging and understandable for this age range, with projects that relate to Nigerian culture and daily life.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I make payment?</h3>
+                    <p>After registration, you'll receive an email with detailed payment instructions, including bank account details and payment confirmation steps. Once payment is confirmed, you'll receive the class link and schedule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2>📞 Have Questions? Contact Us!</h2>
+            <p>We're here to help. Reach out via email or WhatsApp</p>
+            <div class="contact-methods">
+                <a href="mailto:a4codelab@gmail.com" class="contact-method">
+                    <strong>📧 Email</strong>
+                    a4codelab@gmail.com
+                </a>
+                <a href="https://wa.me/2347072057547" target="_blank" class="contact-method">
+                    <strong>💬 WhatsApp Only</strong>
+                    0707 205 7547
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 A4CodeLab Tutors. All rights reserved.</p>
+            <p>Empowering the next generation of Nigerian developers 🇳🇬</p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const startDate = new Date('2025-12-22T00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = startDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<h3 style="color: #FF8C42;">Program has started! 🎉</h3>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Vote Button Handler
+        function selectProject(projectName) {
+            alert(`Great choice! You selected "${projectName}".\n\nPlease scroll down to the registration form and make sure to select "${projectName}" when you register.`);
+            document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
