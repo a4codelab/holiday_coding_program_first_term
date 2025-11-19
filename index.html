@@ -359,15 +359,33 @@
             font-size: 18px;
         }
 
-        .form-placeholder {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #f8f9fa;
-            padding: 40px;
-            border-radius: 15px;
-            border: 3px dashed #1E90FF;
-            text-align: center;
-        }
+       .form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-container iframe {
+    border-radius: 15px;
+    display: block;
+}
+
+/* Mobile responsive for form */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 0;
+        margin: 0;
+        border-radius: 10px;
+    }
+    
+    .form-container iframe {
+        height: 1600px; /* Taller on mobile to show all fields */
+    }
+}
 
         .form-placeholder h3 {
             color: #1E90FF;
@@ -687,13 +705,21 @@
 </section>
 
     <!-- Registration Form -->
-   <section class="registration" id="register">
+<section class="registration" id="register">
     <div class="container">
         <h2>📝 Register Now!</h2>
         <p class="subtitle">Secure your child's spot in this exciting program</p>
         
-        <div class="form-placeholder">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSde0PcRe86Md2Dl72pvib5DhTVQmWD0sfL67PR9xDfZ2G4Lcg/viewform?embedded=true" width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <div class="form-container">
+            <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSde0PcRe86Md2Dl72pvib5DhTVQmWD0sfL67PR9xDfZ2G4Lcg/viewform?embedded=true" 
+                width="100%" 
+                height="1400" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0">
+                Loading…
+            </iframe>
         </div>
     </div>
 </section>
